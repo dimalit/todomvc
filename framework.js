@@ -46,7 +46,8 @@ add_css = function(name, css){
 		var rules = all[i].cssText.replace(all[i].selectorText, "");
 		var selectors = all[i].selectorText.split(",");
 		selectors.forEach(function(el, j){
-			selectors[j] = "."+basename+" "+el;
+			if(el.indexOf("."+basename) == -1)
+				selectors[j] = "."+basename+" "+el;
 		});
 		var new_selector = selectors.join(',');
 		sheet.insertRule(new_selector+rules, i);
