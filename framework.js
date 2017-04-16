@@ -10,6 +10,28 @@ function assert(cond, text){
 		throw text;
 }
 
+function basename(path){
+	path = path.split(/[\\\/]/);
+	var file = path[path.length-1];
+	file = file.split(".");
+	if(file.length==1)
+		return file[0];
+	file.pop();
+	return file.join("");
+}
+
+function define_view(path, depends, extend){
+	define(["text!"+path+".html", "text!"+path+".css"].concat(depends), function(html, css){
+		var name = basename(path);		
+		add_html(name+".html", html);
+		add_css(name+".css", css);
+		
+		extend.name = name;
+		window[name] = Backbone.View.extend(extend);
+	});// define	
+}
+
+
 add_html = function(name, html){
 	var el = $("<script type='text/template' id='"+name+"'>"+html+"</script>");
 	$('head').append(el);

@@ -1,8 +1,4 @@
-define(["text!ui/TodosView.html", "text!ui/TodosView.css", "ui/TodoView", "ui/TodoAdderView"], function(html, css) {
-add_html("TodosView.html", html);
-add_css("TodosView.css", css);
-TodosView = Backbone.View.extend({
-		name: "TodosView",
+define_view("ui/TodosView", ["ui/TodoView", "ui/TodoAdderView"], {
 		model: null,
 		_model2view: {},
 		filter: "all",
@@ -75,5 +71,4 @@ TodosView = Backbone.View.extend({
 			}, this);
 			return view;
 		}
-});
-});// requirejs
+});// define_view

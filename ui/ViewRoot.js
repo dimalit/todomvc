@@ -1,7 +1,4 @@
-define(["text!ui/ViewRoot.html", "text!ui/ViewRoot.css", "ui/TodosView", "ui/BottomView"], function(html, css) {
-add_html("ViewRoot.html", html);
-add_css("ViewRoot.css", css);
-ViewRoot = Backbone.View.extend({
+define_view("ui/ViewRoot", ["ui/TodosView", "ui/BottomView"], {
 	name: 'ViewRoot',
 	model: null,
 	todos_view: null,
@@ -16,4 +13,3 @@ ViewRoot = Backbone.View.extend({
 	events:{
 	}
 });
-});// requirejs

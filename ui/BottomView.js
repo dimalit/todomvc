@@ -1,7 +1,4 @@
-define(["text!ui/BottomView.html", "text!ui/BottomView.css"], function(html, css) {
-add_html("BottomView.html", html);
-add_css("BottomView.css", css);
-BottomView = Backbone.View.extend({
+define_view("ui/BottomView", [], {
 		name: "BottomView",
 		model: null,
 		todos_view: null,
@@ -54,4 +51,3 @@ BottomView = Backbone.View.extend({
 			this.model.remove(completed);
 		}
 });
-});// requirejs

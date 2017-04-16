@@ -1,7 +1,4 @@
-define(["text!ui/TodoView.html", "text!ui/TodoView.css"], function(html, css) {
-add_html("TodoView.html", html);
-add_css("TodoView.css", css);
-TodoView = Backbone.View.extend({
+define_view("ui/TodoView", [], {
 		name: "TodoView",
 		model: null,
 		initialize: function(){
@@ -29,4 +26,3 @@ TodoView = Backbone.View.extend({
 			this.model.set('completed', !c);
 		}
 });
-});// requirejs

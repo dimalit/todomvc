@@ -1,7 +1,4 @@
-define(["text!ui/TodoAdderView.html", "text!ui/TodoAdderView.css", "model/TodoModel"], function(html, css) {
-add_html("TodoAdderView.html", html);
-add_css("TodoAdderView.css", css);
-TodoAdderView = Backbone.View.extend({
+define_view("ui/TodoAdderView", ["model/TodoModel"], {
 		name: "TodoAdderView",
 		model: null,
 		initialize: function(){
@@ -20,4 +17,3 @@ TodoAdderView = Backbone.View.extend({
 			this.$el.val("");
 		}
 });
-});// requirejs
