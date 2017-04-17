@@ -1,5 +1,5 @@
 define_view("ui/TodosView", ["ui/TodoView", "ui/TodoAdderView"], {
-		model: null,
+		model: null,			// TodosModel
 		_model2view: {},
 		filter: "all",
 		initialize: function(){
@@ -11,7 +11,7 @@ define_view("ui/TodosView", ["ui/TodoView", "ui/TodoAdderView"], {
 			assert(filter == "all" || filter == "active" || filter == "completed");
 			if(this.filter != filter)
 				this.filter = filter;
-			
+
 			for(var i=0; i<this.model.length; i++){
 				var todo = this.model.at(i);
 				var show = false;
@@ -21,13 +21,13 @@ define_view("ui/TodosView", ["ui/TodoView", "ui/TodoAdderView"], {
 					show = true;
 				if(filter=="completed" && todo.get('completed'))
 					show = true;
-				
+
 				if(show)
 					this._model2view[todo.cid].$el.show();
 				else
 					this._model2view[todo.cid].$el.hide();
 			}// for
-			
+
 			this.trigger("filter");
 		},
 		getFilter: function(){
@@ -51,10 +51,10 @@ define_view("ui/TodosView", ["ui/TodoView", "ui/TodoAdderView"], {
 				return;
 			this.$('.TodoView').remove();
 			this._model2view = {};
-			
+
 			var adder_el = this.$('.TodoAdderView');
 			var adder = new TodoAdderView({el: adder_el, model: this.model});
-			
+
 			var holder_elem = this.$('.todo_views');
 			for(var i=0; i<this.model.length; i++){
 				var todo = this.model.at(i);

@@ -1,6 +1,6 @@
 define_view("ui/ViewRoot", ["ui/TodosView", "ui/BottomView"], {
 	name: 'ViewRoot',
-	model: null,
+	model: null,						// TodosModel
 	todos_view: null,
 	bottom_view: null,
 	initialize: function(){

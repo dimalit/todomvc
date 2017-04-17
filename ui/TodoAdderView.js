@@ -1,6 +1,6 @@
 define_view("ui/TodoAdderView", ["model/TodoModel"], {
 		name: "TodoAdderView",
-		model: null,
+		model: null,						// TodoModel
 		initialize: function(){
 		},
 		events:{

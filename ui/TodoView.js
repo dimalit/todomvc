@@ -1,6 +1,6 @@
 define_view("ui/TodoView", [], {
 		name: "TodoView",
-		model: null,
+		model: null,						// TodoModel
 		initialize: function(){
 			this.model.on('change', this.render, this);
 			this.render();
@@ -11,7 +11,7 @@ define_view("ui/TodoView", [], {
 				this.$el.addClass('completed');
 				this.$('.complete').attr("checked");
 			}
-			else				
+			else
 				this.$el.removeClass('completed');
 		},
 		events:{

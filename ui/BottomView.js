@@ -1,6 +1,6 @@
 define_view("ui/BottomView", [], {
 		name: "BottomView",
-		model: null,
+		model: null,			// TodosModel
 		todos_view: null,
 		initialize: function(options){
 			this.todos_view = options.todos_view;
@@ -14,16 +14,16 @@ define_view("ui/BottomView", [], {
 			}, 0);
 			var text = count==1? " item left" : " items left";
 			this.$('.count').html(+count+text);
-			
+
 			if(this.model.length==0)
 				this.$el.hide();
 			else
 				this.$el.show();
-			
+
 			if(this.model.findWhere({completed:true}))
 				this.$('.clear_completed').show();
 			else
-				this.$('.clear_completed').hide();	
+				this.$('.clear_completed').hide();
 		},
 		events: {
 			"click .all": "filter_all",
